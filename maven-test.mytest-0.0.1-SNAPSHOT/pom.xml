@@ -10,24 +10,34 @@
   <name>test</name>
   <url>http://maven.apache.org</url>
   
+      <scm>
+           <connection>scm:git:https://github.com/davag/playground-repo.git</connection>
+           <url>https://github.com/davag/playground-repo.git</url>
+     </scm>
+  
  <build>
-    <!-- To define the plugin version in your parent POM -->
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>buildnumber-maven-plugin</artifactId>
-          <version>1.4</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    <!-- To use the plugin goals in your POM or parent POM -->
     <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>1.4</version>
-      </plugin>
+
+		  <plugin>
+		         <groupId>org.codehaus.mojo</groupId>
+		         <artifactId>buildnumber-maven-plugin</artifactId>
+		         <version>1.2</version>
+		         <executions>
+		           <execution>
+		              <phase>validate</phase>
+		              <goals>
+		                <goal>create</goal>
+		              </goals>
+		           </execution>
+		         </executions>
+		         <configuration>
+		            <docheck>false</docheck>
+		            <doupdate>false</doupdate>
+		            <shortrevisionlength>5</shortrevisionlength>
+		         </configuration>
+		      </plugin>
+
+
     </plugins>
   </build>  
 
